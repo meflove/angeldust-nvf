@@ -12,20 +12,8 @@
       # other users in case your repository is public.
       default = (inputs.nvf.lib.neovimConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [{
-          config.vim = {
-            # Enable custom theming options
-            theme.enable = true;
-
-            # Enable Treesitter
-            treesitter.enable = true;
-
-            # Other options will go here. Refer to the config
-            # reference in Appendix B of the nvf manual.
-            # ...
-          };
-        }];
-      }).nvf;
+        modules = [ ./nvf-config.nix ];
+      }).neovim;
     };
   };
 }
